@@ -29,6 +29,7 @@ def restock():
 
 def exit():
     print("Goodbye")
+    sys.exit()
 
 
 sell_b1 = Button(root, text="Sell Comics", command=sell)
