@@ -1,4 +1,4 @@
-"""Version !
+"""Version 1
 This code will create a welcome screen without using TKinter"""
 
 print("Welcome to the Comic Book Store")
