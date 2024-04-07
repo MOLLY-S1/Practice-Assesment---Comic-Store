@@ -32,14 +32,19 @@ def exit():
     sys.exit()
 
 
-sell_b1 = Button(root, text="Sell Comics", command=sell)
-show_b2 = Button(root, text="Show Stock", command=show)
-restock_b3 = Button(root, text="Restock Comics", command=restock)
-exit_b4 = Button(root, text="Exit", command=exit)
+def welcome_screen():
+    sell_b1 = Button(root, text="Sell Comics", command=sell)
+    show_b2 = Button(root, text="Show Stock", command=show)
+    restock_b3 = Button(root, text="Restock Comics", command=restock)
+    exit_b4 = Button(root, text="Exit", command=exit)
 
-sell_b1.pack()
-show_b2.pack()
-restock_b3.pack()
-exit_b4.pack()
+    sell_b1.pack()
+    show_b2.pack()
+    restock_b3.pack()
+    exit_b4.pack()
 
-root.mainloop()
+    root.mainloop()
+
+
+# MAIN ROUTINE
+welcome_screen()
