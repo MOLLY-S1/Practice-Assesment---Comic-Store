@@ -6,7 +6,7 @@ from tkinter import *
 root = Tk()
 
 root.title("WELCOME")
-welcome = Label(root, bg="True_Blue", fg="Turquoise", text="Welcome to the Comic Book Store",
+welcome = Label(root, bg="blue4", fg="Turquoise", text="Welcome to the Comic Book Store",
                 font=("Times", 20, "bold"))
 options = Label(root, fg="Black", text="Please choose an option:",
                 font=("Ariel", 10, "bold"))
