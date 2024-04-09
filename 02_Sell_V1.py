@@ -10,14 +10,10 @@ class Comic:
         self.name = name
         self.price = price
         comics.append(self)
-        if type == "Lizard Man":
-            lizard.append(self)
-        elif type == "Water Woman":
-            ww.append(self)
-        elif type == "Super Dude":
-            sd.append(self)
+        if type == "Lizard Man" or type == "Water Woman" or type == "Super Dude":
+            comics.append(self)
         else:
-            print("invalid")
+            print("INVALID")
 
 
 def display_comics(self):
@@ -29,7 +25,22 @@ def display_comics(self):
 
 def print_comics():
     for comic in comics:
-        display_comics()
+        comic.display_comics()
+
+
+def count_comic():
+    ww_count = 0
+    sd_count = 0
+    lm_count = 0
+    for comic in comics:
+        if comic.comic_type == "Water Woman":
+            ww_count += 1
+        elif comic.comic_type == "Super Dude":
+            sd_count += 1
+        elif comic.comic_type == "Lizard Man":
+            lm_count += 1
+        else:
+            comics.remove(comic)
 
 
 # MAIN ROUTINE
