@@ -1,16 +1,23 @@
-""" Version 1
-Using a function and count to count comics per type"""
+""" Version 2
+Using a list and length to count comics per type"""
 
 comics = []
-
+sd = []
+ww = []
+lm = []
 
 class Comic:
     def __init__(self, comic_type, name, price):
         self.comic_type = comic_type
         self.name = name
         self.price = price
-        if comic_type == "Lizard Man" or comic_type == "Water Woman" or comic_type == "Super Dude":
-            comics.append(self)
+        comics.append(self)
+        if comic_type == "Lizard Man":
+            lm.append(self)
+        elif comic_type == "Water Woman":
+            ww.append(self)
+        elif comic_type == "Super Dude":
+            sd.append(self)
         else:
             print("INVALID")
 
@@ -27,19 +34,9 @@ def print_comics():
 
 
 def count_comic():
-    ww_count = 0
-    sd_count = 0
-    lm_count = 0
-    for comic in comics:
-        if comic.comic_type == "Water Woman":
-            ww_count += 1
-        elif comic.comic_type == "Super Dude":
-            sd_count += 1
-        elif comic.comic_type == "Lizard Man":
-            lm_count += 1
-        else:
-            comics.remove(comic)
-
+    ww_count = len(ww)
+    sd_count = len(sd)
+    lm_count = len(lm)
     print(ww_count)
     print(sd_count)
     print(lm_count)
