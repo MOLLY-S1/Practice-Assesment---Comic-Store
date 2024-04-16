@@ -6,6 +6,7 @@ sd = []
 ww = []
 lm = []
 
+
 class Comic:
     def __init__(self, comic_type, name, price):
         self.comic_type = comic_type
