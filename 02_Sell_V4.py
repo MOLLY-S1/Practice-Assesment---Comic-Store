@@ -35,6 +35,7 @@ class Comic:
               f"Price: ${self.price}\n")
 
 
+
 def print_comics():
     print("FULL INVENTORY")
     print("#################\n")
