@@ -49,18 +49,19 @@ def print_comics():
 
 def add_comic():
     add_window = Toplevel(root)
+    add_window.title = "ADD NEW COMIC"
 
     # Entry widgets for user input
-    Label(add_window, text="Enter Comic Name: ").pack(side=LEFT,  )
+    Label(add_window, text="Enter Comic Name: ").pack(side=TOP, fill=X)
     name_entry = Entry(add_window)
-    name_entry.pack(side= RIGHT)
-    Label(add_window, text="Enter Comic Type: ").pack(side=LEFT)
+    name_entry.pack(side= TOP, fill=X)
+    Label(add_window, text="Enter Comic Type: ").pack(side=TOP, fill=X)
     type_entry = Entry(add_window)
-    type_entry.pack(side=RIGHT)
-    Label(add_window, text="Enter Comic Price: ").pack(side=LEFT)
+    type_entry.pack(side=TOP,fill=X)
+    Label(add_window, text="Enter Comic Price: ").pack(side=TOP, fill=X)
     price_entry = Entry(add_window)
-    price_entry.pack(side=RIGHT)
-    float(price_entry)
+    price_entry.pack(side=TOP, fill=X)
+
 
     def add_new_comic():
         # Get user input from Entry widgets
