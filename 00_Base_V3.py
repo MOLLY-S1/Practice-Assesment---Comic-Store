@@ -1,16 +1,15 @@
-""" Version 3
-Now incorporates the use of Tk inter"""
+import sys
 from tkinter import *
 
-# Root Window
 root = Tk()
-
+root2 = Tk()
+root3 = Tk()
 # Comic storage
 comics = []
 sd = []
 ww = []
 lm = []
-
+names_prices = {}  # Dictionary to store names and prices
 
 class Comic:
     def __init__(self, comic_type, name, price):
@@ -33,7 +32,6 @@ class Comic:
               f"Type: {self.comic_type}\n"
               f"Price: ${self.price}\n")
 
-
 def print_comics():
     print("FULL INVENTORY")
     print("#################\n")
@@ -53,10 +51,10 @@ def add_comic():
     # Entry widgets for user input
     Label(add_window, text="Enter Comic Name: ").pack(side=TOP, fill=X)
     name_entry = Entry(add_window)
-    name_entry.pack(side=TOP, fill=X)
+    name_entry.pack(side= TOP, fill=X)
     Label(add_window, text="Enter Comic Type: ").pack(side=TOP, fill=X)
     type_entry = Entry(add_window)
-    type_entry.pack(side=TOP, fill=X)
+    type_entry.pack(side=TOP,fill=X)
     Label(add_window, text="Enter Comic Price: ").pack(side=TOP, fill=X)
     price_entry = Entry(add_window)
     price_entry.pack(side=TOP, fill=X)
@@ -117,6 +115,48 @@ def count_comic():
     Button(root, text="ADD STOCK", command=add_comic).pack(side=BOTTOM)
 
 
+def sell():
+    print("sell")
+
+
+
+
+
+
+
+
+
+def exit():
+    print("Goodbye")
+    sys.exit()
+
+
+def welcome_screen():
+    root = Tk()
+
+    root.title("WELCOME")
+    welcome = Label(root, bg="Blue4", fg="turquoise", text="Welcome to the Comic Book Store",
+                    font=("Times", 20, "bold"))
+    options = Label(root, fg="Black", text="Please choose an option:",
+                    font=("Ariel", 10, "bold"))
+
+    welcome.pack(side=TOP)
+    options.pack(side=TOP)
+
+    sell_b1 = Button(root, text="Sell Comics", command=sell)
+    show_b2 = Button(root, text="Show Stock", command=count_comic)
+    restock_b3 = Button(root, text="Restock Comics", command=add_comic)
+    exit_b4 = Button(root, text="Exit", command=exit)
+
+    sell_b1.pack()
+    show_b2.pack()
+    restock_b3.pack()
+    exit_b4.pack()
+
+    root.mainloop()
+
+
+# MAIN ROUTINE
 # MAIN ROUTINE
 Comic("Lizard Man", "Saving the lizards", 2.30)
 Comic("Lizard Man", "The slippery snake", 2.50)
@@ -127,6 +167,4 @@ Comic("Water Woman", "Saving the coast", 3.0)
 Comic("Super Dude", "Saving the People", 1.75)
 Comic("Super Dude", "Saving the World", 1.80)
 
-count_comic()
-
-root.mainloop()
+welcome_screen()

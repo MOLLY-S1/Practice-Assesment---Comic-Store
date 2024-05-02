@@ -1,3 +1,4 @@
+import sys
 from tkinter import *
 
 root = Tk()
@@ -45,6 +46,7 @@ Comic("Water Woman", "Saving the coast", 3.0)
 Comic("Super Dude", "Saving the People", 1.75)
 Comic("Super Dude", "Saving the World", 1.80)
 
+
 # Create a list of names without the word "Comic" and append the price
 options = []
 for comic in comics:
@@ -67,16 +69,19 @@ money.pack(side=TOP)
 
 
 def sell_comics():
+    global count
+    global clicked
     selected_comic = clicked.get().split(" - ")[0]
     for comic in comics:
         if comic.name == selected_comic:
-            comics.remove(comic)
-            global count
             count += comic.price
             money.config(text=f"INCOME - ${count}")
             break
 
 
+exit_button = Button(root, text= "EXIT", command=sys.exit)
+exit_button.pack(side=BOTTOM)
 sell_button = Button(root, text="CONFIRM SALE", command=sell_comics)
 sell_button.pack(side=BOTTOM)
 root.mainloop()
+
