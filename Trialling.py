@@ -47,41 +47,41 @@ Comic("Super Dude", "Saving the People", 1.75)
 Comic("Super Dude", "Saving the World", 1.80)
 
 
-# Create a list of names without the word "Comic" and append the price
-options = []
-for comic in comics:
-    if "Comic" in comic.name:
-        options.append(comic.name.replace("Comic", "") + f" - ${comic.price}")
-    else:
-        options.append(comic.name + f" - ${comic.price}")
+def sell_comics_proper():
+    clicked = StringVar()
+    clicked.set("COMICS FOR SALE")
 
-clicked = StringVar()
-clicked.set("COMICS FOR SALE")
-drop = OptionMenu(root, clicked, *options)
-drop.pack()
-label = Label(root, text=" ")
-label.pack()
-root.title("SELL COMICS")
+    def sell_comics():
+        nonlocal count
+        selected_comic = clicked.get().split(" - ")[0]
+        for comic in comics:
+            if comic.name == selected_comic:
+                count += comic.price
+                money.config(text=f"INCOME - ${count}")
+                break
 
-count = 0
-money = Label(root, text=f"INCOME - ${count}")
-money.pack(side=TOP)
-
-
-def sell_comics():
-    global count
-    global clicked
-    selected_comic = clicked.get().split(" - ")[0]
+    options = []
     for comic in comics:
-        if comic.name == selected_comic:
-            count += comic.price
-            money.config(text=f"INCOME - ${count}")
-            break
+        if "Comic" in comic.name:
+            options.append(comic.name.replace("Comic", "") + f" - ${comic.price}")
+        else:
+            options.append(comic.name + f" - ${comic.price}")
+
+    drop = OptionMenu(root, clicked, *options)
+    drop.pack()
+    label = Label(root, text=" ")
+    label.pack()
+    root.title("SELL COMICS")
+
+    count = 0
+    money = Label(root, text=f"INCOME - ${count}")
+    money.pack(side=TOP)
+
+    exit_button = Button(root, text="EXIT", command=sys.exit)
+    exit_button.pack(side=BOTTOM)
+    sell_button = Button(root, text="CONFIRM SALE", command=sell_comics)
+    sell_button.pack(side=BOTTOM)
 
 
-exit_button = Button(root, text= "EXIT", command=sys.exit)
-exit_button.pack(side=BOTTOM)
-sell_button = Button(root, text="CONFIRM SALE", command=sell_comics)
-sell_button.pack(side=BOTTOM)
+sell_comics_proper()
 root.mainloop()
-
